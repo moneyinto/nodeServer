@@ -5,7 +5,6 @@ const fs = require('fs');
 const routes = require('./app/route');
 
 const mime = {
-    "html": "text/html",
     "css": "text/css",
     "js": "text/javascript",
     "json": "application/json",
@@ -29,14 +28,12 @@ http.createServer((req, res) => {
     let pathname = url.parse(req.url).pathname;
     let extname = path.extname(pathname);
     let type = extname.slice(1);
-
     if (extname === '') {
         let router = routes.find(item => {
             return item.router == pathname && item.method == req.method
         })
-
-        console.log(router)
         if (!router) {
+            console.log('status:' + 404);
             res.writeHead(404, { 'Content-Type': 'text/plain' });
             res.end();
         } else {
@@ -49,20 +46,22 @@ http.createServer((req, res) => {
         }
     } else {
         let filePath = 'src' + pathname;
-        fs.exists(filePath, function (exists) {
+        fs.exists(filePath, (exists) => {
             if (!exists) {
+                console.log('status:' + 404);
                 res.writeHead(404, { 'Content-Type': 'text/plain' });
                 res.end();
             } else {
                 if (type == "html") {
-                    fs.readFile(filePath, function (err, data) {
+                    fs.readFile(filePath, (err, data) => {
                         res.writeHead(200, { 'Content-Type': 'text/html' });
                         res.write(data);
                         res.end();
                     })
                 } else {
-                    fs.readFile(filePath, 'binary', function (err, file) {
+                    fs.readFile(filePath, 'binary', (err, file) => {
                         if (err) {
+                            console.log('status:' + 404);
                             res.writeHead(500, { 'Content-Type': 'text/plain' });
                             res.end();
                         } else {
