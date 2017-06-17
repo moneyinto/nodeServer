@@ -1,3 +1,188 @@
 body {
-    background: red;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+a {
+    color: #666 !important;
+    text-decoration: none !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/**
+*   栅格布局
+*/
+.web_row:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.block_25 {
+    float: left;
+    width: 25%;
+}
+
+/**
+*   table布局
+*/
+.table_box {
+    display: table;
+}
+
+.table_cell {
+    display: table-cell;
+}
+
+.table_cell.middle {
+    vertical-align: middle;
+}
+
+.table_cell.bottom {
+    vertical-align: bottom;
+}
+
+/**
+*   dialog
+*/
+#dialog {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.dialog-box {
+    position: relative;
+    width: 300px;
+    margin: 150px auto;
+    z-index: 100;
+}
+
+.dialog-alert {
+    box-shadow: 0 0 8px #666;
+    width: 100%;
+    border-radius: 5px;
+    background: #fff;
+    display: none;
+}
+
+.dialog-header {
+    line-height: 40px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #0896fb;
+    color: #fff;
+    padding: 0 10px;
+    font-size: 18px;
+}
+
+.dialog-close {
+    float: right;
+}
+
+.dialog-content {
+    text-align: center;
+    padding: 30px;
+}
+
+.dialog-content .sure {
+    width: 200px;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    height: 40px;
+    background: #0896fb;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/**
+*   animation
+*/
+.animated {
+    animation-duration: .5s;
+    animation-fill-mode: both;
+}
+
+.zoomIn {
+    animation-name: zoomIn;
+}
+
+.animated.infinite {
+    animation-iteration-count: infinite;
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/**
+*   loading
+*/
+.loading-box {
+    width: 1%;;
+    height: 2px;
+    position: fixed;
+    background: #0896fb;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.loading-box.waiting {
+    animation-name: loading-start;
+}
+
+@keyframes loading-start {
+    0% {
+        width: 1%;
+    }
+
+    100% {
+        width: 66%;
+    }
+}
+
+.loading-finish {
+    animation-name: loading-end;
+}
+
+@keyframes loading-end {
+    0% {
+        width: 66%;
+    }
+
+    100% {
+        width: 100%;
+    }
 }

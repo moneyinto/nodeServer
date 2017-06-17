@@ -3,8 +3,21 @@
         <meta charset="utf-8">
         <title>我的最简node框架</title>
         <link href="/css/style.css" rel="stylesheet" />
+        <script src="/js/jquery-2.1.6.min.js"></script>
+        <script src="/js/dialog.js"></script>
+        <script src="/js/loading.js"></script>
     </head>
     <body>
         hello world!
+        <a href="11">111</a>
+        <div class="table_box">
+            <div class="table_cell middle" style="height: 100px;background: red;">
+                11
+            </div>
+        </div>
+
+        <button onclick="dialog.show('还不错哦！')">alert</button>
+        <button onclick="loading.show()">loading show</button>
+        <button onclick="loading.hide()">loading hide</button>
     </body>
 </html>
